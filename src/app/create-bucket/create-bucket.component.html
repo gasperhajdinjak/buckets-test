@@ -1,0 +1,23 @@
+<!-- Create Bucket Form -->
+<form (ngSubmit)="onSubmit($event)" #createBucketForm="ngForm">
+    <div class="form-group">
+        <label for="bucketName">Bucket Name:</label>
+        <input type="text" class="form-control" id="bucketName" required [(ngModel)]="newBucket.name" name="bucketName"
+            #bucketName="ngModel" />
+        <div *ngIf="bucketName.invalid && (bucketName.dirty || bucketName.touched)" class="alert alert-danger">
+            <!-- <div *ngIf="bucketName.errors.required">Bucket name is required.</div> -->
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="bucketLocation">Bucket Location:</label>
+        <input type="text" class="form-control" id="bucketLocation" required [(ngModel)]="newBucket.location"
+            name="bucketLocation" #bucketLocation="ngModel" />
+        <!-- <div *ngIf="bucketLocation.errors.required">Bucket location is required.</div> -->
+    </div>
+
+
+    <button type="submit" class="btn btn-primary" [disabled]="createBucketForm.form.invalid">
+        Create Bucket
+    </button>
+</form>

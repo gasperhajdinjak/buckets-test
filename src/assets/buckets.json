@@ -1,0 +1,27 @@
+
+[
+  {
+    "id": 1,
+    "name": "BestStorage",
+    "location": "Ljubljana",
+    "files": [
+      {
+        "id": "file1",
+        "name": "file1.txt",
+        "lastModified": "2023-03-16T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Pics",
+    "location": "Kranj",
+    "files": [
+      {
+        "id": "file2",
+        "name": "image1.jpg",
+        "lastModified": "2023-03-16T00:00:00.000Z"
+      }
+    ]
+  }
+]
