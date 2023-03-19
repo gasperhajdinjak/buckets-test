@@ -1,0 +1,82 @@
+.create-bucket-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-fields {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-fields .form-group {
+  flex: 1;
+}
+
+.input-fields .form-group:nth-child(1) {
+  margin-right: 15px;
+}
+
+.input-fields .form-group:nth-child(2) {
+  margin-left: 15px;
+}
+
+.create-bucket-btn {
+  background-color: #007bff;
+  margin-top: 10px;
+}
+
+.select-container {
+  position: relative;
+}
+
+.select-container::after {
+  content: '';
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #333;
+  pointer-events: none;
+}
+
+.input-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+    width: 48%;
+}
+
+input,
+select {
+  margin-top: 5px;
+}
+
+.submit-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.create-bucket-button {
+  background-color: rgb(57,62,111);
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.create-bucket-button:hover {
+  background-color: #000
+}
+
+.create-bucket-button:disabled {
+  background-color:  rgb(57,62,111);
+  opacity: 0.5;
+}

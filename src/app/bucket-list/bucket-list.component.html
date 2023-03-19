@@ -1,21 +1,40 @@
 <div class="container mt-4">
   <div class="row">
     <div class="col">
-      <h2>Bucket List</h2>
-    </div>
-    <div class="col text-right">
-      <button class="btn btn-primary" (click)="openCreateBucketModal()">Create New Bucket</button>
+      <h2 class="bucket-list-title">Bucket List</h2>
     </div>
   </div>
-  <div class="row mt-4">
-    <div class="col">
-      <ul class="list-group">
-        <li *ngFor="let bucket of buckets" class="list-group-item d-flex justify-content-between align-items-center">
-          <a [routerLink]="['/bucket', bucket.id]">{{ bucket.name }}</a>
-          <span>{{ bucket.location }}</span>
-        </li>
-      </ul>
+  <div class="content-container">
+    <div class="row d-flex align-items-center">
+      <div class="col-6">
+        <h5>All Buckets ({{buckets.length}})</h5>
+      </div>
+      <div class="col-6 d-flex justify-content-end">
+        <button class="btn"
+          [ngStyle]="{'background-color': 'rgb(57,62,111)', 'color': 'white', 'border': '1px solid black'}"
+          (click)="toggleCreateBucketForm()">Create New Bucket</button>
+      </div>
+    </div>
+    <div *ngIf="showCreateBucketForm" class="row mt-4">
+      <div class="col">
+        <app-create-bucket (bucketCreated)="toggleCreateBucketForm()"></app-create-bucket>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col">
+        <ul class="list-group">
+          <li class="list-group-item d-flex justify-content-between align-items-center titles-bg">
+            <span class="font-weight-bold">Name</span>
+            <span class="font-weight-bold">Location</span>
+          </li>
+          <li *ngFor="let bucket of buckets" class="list-group-item d-flex justify-content-between align-items-center">
+            <span>
+              <a [routerLink]="['/bucket', bucket.id]">{{ bucket.name }}</a>
+            </span>
+            <span>{{ bucket.location }}</span>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
-

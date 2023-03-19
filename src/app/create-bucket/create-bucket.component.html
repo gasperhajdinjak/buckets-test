@@ -1,23 +1,18 @@
-<!-- Create Bucket Form -->
-<form (ngSubmit)="onSubmit($event)" #createBucketForm="ngForm">
-    <div class="form-group">
-        <label for="bucketName">Bucket Name:</label>
-        <input type="text" class="form-control" id="bucketName" required [(ngModel)]="newBucket.name" name="bucketName"
-            #bucketName="ngModel" />
-        <div *ngIf="bucketName.invalid && (bucketName.dirty || bucketName.touched)" class="alert alert-danger">
-            <!-- <div *ngIf="bucketName.errors.required">Bucket name is required.</div> -->
+<form (ngSubmit)="onSubmit($event, form)" #form="ngForm">
+    <div class="input-container">
+        <div class="input-group">
+            <label for="name">Bucket Name:</label>
+            <input type="text" id="name" name="name" [(ngModel)]="newBucket.name" required />
+        </div>
+        <div class="input-group">
+            <label for="location">Bucket Location:</label>
+            <select id="location" name="location" [(ngModel)]="newBucket.location" required>
+                <option value="Kranj">Kranj</option>
+                <option value="Ljubljana">Ljubljana</option>
+            </select>
         </div>
     </div>
-
-    <div class="form-group">
-        <label for="bucketLocation">Bucket Location:</label>
-        <input type="text" class="form-control" id="bucketLocation" required [(ngModel)]="newBucket.location"
-            name="bucketLocation" #bucketLocation="ngModel" />
-        <!-- <div *ngIf="bucketLocation.errors.required">Bucket location is required.</div> -->
+    <div class="submit-container">
+        <button type="submit" [disabled]="!form.valid" class="create-bucket-button">Create Bucket</button>
     </div>
-
-
-    <button type="submit" class="btn btn-primary" [disabled]="createBucketForm.form.invalid">
-        Create Bucket
-    </button>
 </form>

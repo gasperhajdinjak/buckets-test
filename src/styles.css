@@ -1,4 +1,57 @@
-/* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import '~font-awesome/css/font-awesome.css';
+
+html, body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+    /* background-color: rgb(239, 242, 244); */
+}
+
+.app-body {
+  background-color: rgb(239, 242, 244);
+}
+
+.bucket-list-title {
+  background-color: rgb(239, 242, 244);
+}
+
+.content-container {
+  background-color: white;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.table-header {
+  background-color: rgb(204, 204, 204);
+}
+
+.modal-content {
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.modal-footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.modal-title {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-size: 24px;
+}
+
+.btn {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+.btn-primary {
+  background-color: rgb(217, 166, 166);
+  border-color: rgb(159, 108, 108);
+}

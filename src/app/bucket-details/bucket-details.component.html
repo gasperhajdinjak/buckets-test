@@ -1,12 +1,46 @@
-<div class="container mt-4">
-  <h2>{{ bucket.name }} - Files</h2>
-  <div class="mt-4">
-    <ul class="list-group">
-      <li *ngFor="let file of bucket.files" class="list-group-item d-flex justify-content-between align-items-center">
-        {{ file.name }}
-        <span>Last modified: {{ file.lastModified | date }}</span>
-      </li>
-    </ul>
-  </div>
+<div class="container">
+    <h2>{{ bucket.name }}</h2>
+    <div class="d-flex justify-content-between align-items-center">
+        <div>
+            <button class="btn btn-switch" [ngClass]="{'btn-active': selectedView === 'files'}"
+                (click)="selectedView = 'files'">Files</button>
+            <button class="btn btn-switch" [ngClass]="{'btn-active': selectedView === 'details'}"
+                (click)="selectedView = 'details'">Details</button>
+        </div>
+        <div *ngIf="selectedView === 'details'">
+            <button class="btn btn-danger" (click)="deleteBucket(bucket.id)">Delete Bucket</button>
+        </div>
+    </div>
+    <div class="mt-0 table-container" [ngSwitch]="selectedView">
+        <div *ngSwitchCase="'details'">
+            <h2>{{ bucket.name }}</h2>
+            <p>Location: {{ bucket.location }}</p>
+            <p>Size: {{ getBucketSize() | fileSize }}</p>
+        </div>
+        <div *ngSwitchCase="'files'">
+            <div class="d-flex justify-content-end">
+                <button class="btn delete-object-btn" [disabled]="!selectedFileId" (click)="deleteFile()">Delete
+                    Object</button>
+                <button class="btn upload-object-btn ml-2" (click)="onUploadButtonClick()">Upload Object</button>
+                <input type="file" id="fileUploadInput" style="display: none" (change)="onFileSelected($event)" />
+            </div>
+            <table class="table table-bordered table-hover mt-4">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Last Modified</th>
+                        <th>Size</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let file of bucket.files; trackBy: trackByFileId" (click)="selectFile(file.fileId)"
+                        [class.selected]="selectedFileId === file.fileId">
+                        <td>{{ file.name }}</td>
+                        <td>{{ file.lastModified | date: 'medium' }}</td>
+                        <td>{{ file.size | fileSize }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
-

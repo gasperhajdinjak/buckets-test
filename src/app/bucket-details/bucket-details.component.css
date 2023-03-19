@@ -1,0 +1,86 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+   cursor: pointer;
+}
+
+.table th {
+  background-color: #f2f2f2;
+  cursor: pointer;
+}
+
+.selected-file {
+  background-color: #f2f2f2;
+}
+
+.selected {
+  background-color: #e0e0e0;
+  cursor: pointer;
+}
+
+.selected::after {
+  content: "\2714";
+  color: #28a745;
+  position: absolute;
+  right: 15px;
+}
+
+
+.table tbody tr {
+  background-color: white;
+}
+
+tr.selected {
+  background-color: rgba(0, 128, 0, 0.3);
+  cursor: pointer;
+}
+
+
+tr.selected .file-name {
+  border: 1px solid green;
+  padding: 0 4px;
+}
+
+tr.selected i.fa-check {
+  color: green;
+}
+
+
+.btn-switch {
+  background-color: rgb(217, 166, 166);
+  border-color: transparent;
+  color: white;
+  margin-bottom: -1px;
+}
+
+.btn-switch.btn-active {
+  background-color: white;
+  color: black;
+}
+
+.table-container {
+  border: 1px solid #dee2e6;
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.delete-object-btn {
+  background-color: rgb(243, 192, 192);
+  border: 1px solid rgb(159, 108, 108);
+  color: black;
+}
+
+.upload-object-btn {
+  background-color: white;
+  border: 1px solid rgb(158, 158, 158);
+  color: black;
+}
+

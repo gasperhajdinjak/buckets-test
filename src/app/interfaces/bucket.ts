@@ -1,6 +1,11 @@
 export interface Bucket {
-  id: number;
+  id: string;
   name: string;
   location: string;
-  files: { name: string; lastModified: string }[];
+  files: Array<{
+    fileId: string;
+    name: string;
+    size: number;
+    lastModified: string;
+  }>;
 }
